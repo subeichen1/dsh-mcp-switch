@@ -1,0 +1,3 @@
+- insert:
+    - id: mcp-switch
+      name: 'dsh-mcp-switch'

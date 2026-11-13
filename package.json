@@ -1,0 +1,82 @@
+{
+  "name": "dsh-mcp-switch",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "MCP switchboard for DSH: enable/disable each @deepseek-ai/dsh-mcp-client server live, hide individual tools from the model, and see exactly what each choice costs in context tokens.",
+  "license": "MIT",
+  "icon": "./icon.svg",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "lib",
+    "locale",
+    "icon.svg",
+    "README.md",
+    "README.en.md",
+    "SECURITY.md",
+    "SECURITY.zh.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "mcp",
+    "mcp-client",
+    "model-context-protocol",
+    "settings",
+    "toggle",
+    "token-cost",
+    "cordis"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/subeichen1/dsh-mcp-switch.git"
+  },
+  "homepage": "https://github.com/subeichen1/dsh-mcp-switch#readme",
+  "bugs": {
+    "url": "https://github.com/subeichen1/dsh-mcp-switch/issues"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test test/unit.test.mjs test/patch-contract.test.mjs test/patch.test.mjs test/calls.test.mjs test/scan.test.mjs test/catalog.test.mjs test/write-path.test.mjs test/tool-state.test.mjs test/known-tools.test.mjs test/package-contract.test.mjs test/docs-parity.test.mjs test/release-consistency.test.mjs test/panel-entry.test.mjs test/servers-view.test.mjs test/catalog-view.test.mjs"
+  },
+  "dsh": {
+    "engines": {
+      "dsh": ">=0.2.0-rc.1"
+    },
+    "requires": [
+      "ctx.effect",
+      "ctx.get",
+      "ctx.webServer.register",
+      "ctx.loader.entries",
+      "ctx.tools.schemas",
+      "ctx.tools.restrict",
+      "ctx.agents",
+      "ctx.on"
+    ],
+    "optional": [
+      "ctx.logger"
+    ],
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-ui-slots"
+      ]
+    }
+  }
+}

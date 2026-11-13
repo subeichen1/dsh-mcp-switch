@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "MCP Switch",
+    "description": "Enable or disable each MCP server, or individual tools within one, and see what it costs in context tokens."
+  }
+}
